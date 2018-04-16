@@ -112,3 +112,29 @@ return true
 }
 
 ```
+
+### Sum Strings as Numbers 4星
+需要考虑溢出的情况
+
+```js
+function sumStrings(a,b) {
+// get the min len
+  var len = a.length > b.length ? a.length : b.length
+  let arr = [0]
+  for(let i = 1; i <= len ; i++){
+    let num = arr.pop();
+    let _a = (a[a.length - i] === undefined) ? 0 : (+a[a.length - i]);
+    let _b = (b[b.length -i] === undefined) ? 0 : (+b[b.length -i]);
+    let sum1 = _a + _b + num
+    let num1 = sum1%10
+    let num2 = parseInt(sum1/10)
+    arr.push(num1,num2)
+  }
+  let str = arr.reverse().join('')
+    // 去掉字符串前面的0
+  for(let i = 0; i < str.length; i++){
+    (str[0] === '0') && (str = str.substr(1))
+  }
+  return str
+}
+```
