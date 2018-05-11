@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id = "test"/>
+    <p id = "display"></p>
+</body>
+<script>
+    let input = document.getElementById('test')
+    let display = document.getElementById('display')
+    let obj = {
+        set value(v){
+            this.__v__ = 
+            input.innerHTML = this.__v__
+            display.innerHTML = this.__v__
+        },
+        get value(){
+            return this.__v__||''
+        }
+    }
+    input.innerHTML = obj.value
+
+    input.addEventListener("keyup",(e)=>{
+        obj.value = e.target.value
+    })
+</script>
+</html>
