@@ -138,3 +138,46 @@ function sumStrings(a,b) {
   return str
 }
 ```
+
+### 查找数组中唯一的基数或者偶数
+
+```js
+function findOutlier(int){
+  var even = int.filter(a=>a%2==0);
+  var odd = int.filter(a=>a%2!==0);
+  return even.length==1? even[0] : odd[0];
+}
+```
+
+```js
+function findOutlier(integers){
+  let [a,b,c, ] = integers
+  if(Math.abs(a%2) === Math.abs(b%2)){
+    return integers.find((v)=> Math.abs(v%2) !== Math.abs(a%2))
+  }else{
+    if(Math.abs(a%2) !== Math.abs(c%2)) return a
+    else return b
+  }
+}
+```
+
+### 寻找数组中出现奇数次的元素
+
+```js
+function findOdd(A) {
+  let obj = {}
+  A.map((v,i)=>{
+    if(obj[v] === undefined){
+      obj[v] = 1
+    }else {
+        obj[v] ++
+    }
+  })
+  for(let i in obj ){
+    if(obj[i]%2){
+      return +i
+    }
+  }
+  return 0;
+}
+```
